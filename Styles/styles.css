@@ -1,0 +1,22 @@
+/* Styles personnalisés (complément à Tailwind) */
+#clicker {
+    cursor: pointer;
+    transition: transform 0.1s;
+  }
+  
+  #clicker:active {
+    transform: scale(0.95);
+  }
+  
+  /* Animation pour les gains */
+  @keyframes float-up {
+    0% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(-50px); }
+  }
+  
+  .diamond-gain {
+    position: absolute;
+    color: #60a5fa;
+    font-weight: bold;
+    animation: float-up 1s forwards;
+  }
