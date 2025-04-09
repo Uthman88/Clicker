@@ -1,0 +1,16 @@
+{
+    "tools": [
+        {
+            "id": "basic-pickaxe",
+            "name": "Pioche de base",
+            "cost": 15,
+            "multiplier": 3
+        },
+        {
+            "id": "advanced-pickaxe",
+            "name": "Pioche avancée",
+            "cost": 50,
+            "multiplier": 5
+        }
+    ]
+}
