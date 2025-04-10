@@ -1,0 +1,30 @@
+{
+    "miner": {
+        "name": "Miner",
+        "baseCost": 15,
+        "baseProduction": 0.1,
+        "sprite": "miner.png",
+        "description": "0.1 diamant/sec"
+    },
+    "drill": {
+        "name": "Drill",
+        "baseCost": 100,
+        "baseProduction": 0.5,
+        "sprite": "drill.png",
+        "description": "0.5 diamant/sec"
+    },
+    "bulldozer": {
+        "name": "Bulldozer",
+        "baseCost": 500,
+        "baseProduction": 2,
+        "sprite": "bulldozer.png",
+        "description": "2 diamants/sec"
+    },
+    "mine": {
+        "name": "Mine",
+        "baseCost": 3000,
+        "baseProduction": 10,
+        "sprite": "mine.png",
+        "description": "10 diamants/sec"
+    }
+}

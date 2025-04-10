@@ -1,20 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
+    <meta charset="UTF-8">
     <title>Diamond Miner</title>
-    <link rel="stylesheet" href="assets/styles/style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div id="game">
+    <div class="container">
         <h1 id="diamond-count">0</h1>
-        <button id="click-btn"><img src="images/pickaxe.png" alt="Pioche"></button>
-        
+        <button id="click-btn">
+            <img src="assets/images/pickaxe_wood.png" alt="Pioche" id="pickaxe-img">
+        </button>
+
         <div class="shop">
-            <button class="shop-item" data-item="miner">Mineur (10💎)</button>
-            <button class="shop-item" data-item="mine">Mine (50💎)</button>
+            <h2>🏭 Producteurs</h2>
+            <div id="producers-container">
+                <!-- Rempli dynamiquement par display.js -->
+            </div>
+
+            <h2>⚡ Boosts</h2>
+            <div id="boosts-container">
+                <!-- Rempli dynamiquement par display.js -->
+            </div>
         </div>
     </div>
 
-    <script type="module" src="assets/js/main.js"></script>
+    <script type="module" src="js/main.js"></script>
 </body>
 </html>

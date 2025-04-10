@@ -1,0 +1,38 @@
+{
+    "woodenPickaxe": {
+        "name": "Wooden Pickaxe",
+        "multiplier": 1,
+        "cost": 0,
+        "unlockedByDefault": true,
+        "sprite": "pickaxe_wood.png",
+        "description": "x1 - Basique"
+    },
+    "stonePickaxe": {
+        "name": "Stone Pickaxe",
+        "multiplier": 2,
+        "cost": 50,
+        "sprite": "pickaxe_stone.png",
+        "description": "x2 - Solide"
+    },
+    "ironPickaxe": {
+        "name": "Iron Pickaxe",
+        "multiplier": 5,
+        "cost": 200,
+        "sprite": "pickaxe_iron.png",
+        "description": "x5 - Puissante"
+    },
+    "goldenPickaxe": {
+        "name": "Golden Pickaxe",
+        "multiplier": 10,
+        "cost": 1000,
+        "sprite": "pickaxe_gold.png",
+        "description": "x10 - Luxe"
+    },
+    "diamondPickaxe": {
+        "name": "Diamond Pickaxe",
+        "multiplier": 20,
+        "cost": 5000,
+        "sprite": "pickaxe_diamond.png",
+        "description": "x20 - Ultime"
+    }
+}
