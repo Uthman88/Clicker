@@ -15,10 +15,10 @@
             <h1>💎 MindMine Clicker</h1>
             <div id="score">Diamants : <span id="diamond-count">0</span></div>
             <div id="click-area">
-                <button id="click-btn" aria-label="Casser le diamant">
-                    <img id="pickaxe" src="./assets/Wooden_Pickaxe.png" alt="Pioche">
+                <button id="click-btn">
+                    <img id="pickaxe" src="./assets/images/pickaxe_wood.png" alt="Pioche">
                 </button>
-                <img id="diamond" src="./assets/diamond.png" alt="Diamant">
+                <img id="diamond" src="./assets/images/diamond.png" alt="Diamant">
             </div>
             <div class="log" id="log"></div>
         </div>
@@ -27,20 +27,19 @@
         <div class="shop-section">
             <h2>🏭 Producteurs</h2>
             <div id="producers-container">
-                <!-- Rempli dynamiquement par shop.js -->
+                <!-- Rempli dynamiquement par shopManager.js -->
             </div>
             <h2>⚡ Améliorations</h2>
             <div id="boosts-container">
-                <!-- Rempli dynamiquement par shop.js -->
+                <!-- Rempli dynamiquement par shopManager.js -->
             </div>
         </div>
     </div>
 
     <!-- Scripts -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="./js/diamondAnimation.js"></script>
-    <script src="./js/effects.js"></script>
-    <script src="./js/shop.js"></script>
+    <script src="./js/gameManager.js"></script>
+    <script src="./js/shopManager.js"></script>
+    <script src="./js/animationUpgrade.js"></script>
     <script src="./js/main.js"></script>
 </body>
 </html>
