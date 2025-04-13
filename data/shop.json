@@ -11,6 +11,12 @@
             "name": "Pioche avancée",
             "cost": 50,
             "multiplier": 5
+        },
+        {
+            "id": "golden-pickaxe",
+            "name": "Pioche en or",
+            "cost": 200,
+            "multiplier": 10
         }
     ]
 }

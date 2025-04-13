@@ -1,0 +1,23 @@
+{
+    "miner": {
+        "name": "Mineur",
+        "baseCost": 15,
+        "baseProduction": 0.1,
+        "sprite": "miner.png",
+        "description": "0.1 diamant/sec"
+    },
+    "drill": {
+        "name": "Foreuse",
+        "baseCost": 100,
+        "baseProduction": 0.5,
+        "sprite": "drill.png",
+        "description": "0.5 diamant/sec"
+    },
+    "factory": {
+        "name": "Usine",
+        "baseCost": 500,
+        "baseProduction": 2,
+        "sprite": "factory.png",
+        "description": "2 diamants/sec"
+    }
+}

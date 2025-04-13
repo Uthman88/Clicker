@@ -3,27 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MindMine Clicker</title>
-    <link rel="stylesheet" href="css/style.css">
+    <meta name="description" content="Un jeu de clic où vous devez miner des diamants et acheter des producteurs pour augmenter votre production.">
+    <title>💎 MindMine Clicker</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <main class="game-container">
-        <h1>💎 MindMine Clicker</h1>
-        <div id="score">0 éclats</div>
-
-        <div id="click-area">
-            <img id="pickaxe" src="images/pickaxe.png" alt="Pioche">
-            <img id="diamond" src="images/diamond.png" alt="Diamant">
+    <div class="game-container">
+        <!-- Section de jeu (gauche) -->
+        <div class="game-section">
+            <h1>💎 MindMine Clicker</h1>
+            <div id="score">Diamants : <span id="diamond-count">0</span></div>
+            <div id="click-area">
+                <button id="click-btn" aria-label="Casser le diamant">
+                    <img id="pickaxe" src="./assets/Wooden_Pickaxe.png" alt="Pioche">
+                </button>
+                <img id="diamond" src="./assets/diamond.png" alt="Diamant">
+            </div>
+            <div class="log" id="log"></div>
         </div>
 
-        <div class="log" id="log"></div>
-        
-        <div id="shop" class="hidden">
-            <h2>Boutique</h2>
-            <div id="shop-items"></div>
+        <!-- Section boutique (droite) -->
+        <div class="shop-section">
+            <h2>🏭 Producteurs</h2>
+            <div id="producers-container">
+                <!-- Rempli dynamiquement par shop.js -->
+            </div>
+            <h2>⚡ Améliorations</h2>
+            <div id="boosts-container">
+                <!-- Rempli dynamiquement par shop.js -->
+            </div>
         </div>
-    </main>
+    </div>
 
-    <script src="js/main.js"></script>
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="./js/diamondAnimation.js"></script>
+    <script src="./js/effects.js"></script>
+    <script src="./js/shop.js"></script>
+    <script src="./js/main.js"></script>
 </body>
 </html>
