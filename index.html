@@ -3,43 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Un jeu de clic où vous devez miner des diamants et acheter des producteurs pour augmenter votre production.">
-    <title>💎 MindMine Clicker</title>
-    <link rel="stylesheet" href="./css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <title>Diamond Miner</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="game-container">
-        <!-- Section de jeu (gauche) -->
-        <div class="game-section">
-            <h1>💎 MindMine Clicker</h1>
-            <div id="score">Diamants : <span id="diamond-count">0</span></div>
-            <div id="click-area">
-                <button id="click-btn">
-                    <img id="pickaxe" src="./assets/images/pickaxe_wood.png" alt="Pioche">
-                </button>
-                <img id="diamond" src="./assets/images/diamond.png" alt="Diamant">
+    <!-- Modal de bienvenue -->
+    <div id="welcome-modal" class="modal">
+        <div class="modal-content">
+            <h2>Bienvenue dans Diamond Miner !</h2>
+            <div class="carousel">
+                <div class="carousel-slides">
+                    <img src="assets/images/bulldozer.png" alt="Slide 1">
+                    <img src="assets/images/excavatrice.png" alt="Slide 2">
+                    <img src="assets/images/mine_background.png" alt="Slide 3">
+                </div>
             </div>
-            <div class="log" id="log"></div>
+            <p>Préparez-vous à miner des diamants et à devenir le meilleur mineur !</p>
+            <button id="close-modal-btn">Jouer !</button>
+        </div>
+    </div>
+
+    <div class="game-container">
+        <!-- Colonne Gauche - Statistiques -->
+        <div class="panel stats-panel">
+            <h2>Statistiques</h2>
+            <div class="stat-item">Total produit: <span id="total-produced">0</span></div>
+            <div class="stat-item">Production/s: <span id="production-rate">0</span></div>
+            <div class="stat-item">Multiplicateur: <span id="global-multiplier">1</span>x</div>
+            <div class="stat-item">Clic valeur: <span id="click-value">1</span></div>
         </div>
 
-        <!-- Section boutique (droite) -->
-        <div class="shop-section">
-            <h2>🏭 Producteurs</h2>
-            <div id="producers-container">
-                <!-- Rempli dynamiquement par shopManager.js -->
+        <!-- Colonne Centrale - Jeu -->
+        <div class="panel main-panel">
+            <div id="diamond-counter">0 Diamants</div>
+            <div id="click-zone">
+                <img src="assets/images/diamond.png" alt="Diamant" id="diamond">
             </div>
-            <h2>⚡ Améliorations</h2>
-            <div id="boosts-container">
-                <!-- Rempli dynamiquement par shopManager.js -->
+        </div>
+
+        <!-- Colonne Droite - Possessions -->
+        <div class="panel owned-panel">
+            <h2>Possessions</h2>
+            <div class="sub-panel">
+                <h3>Améliorations</h3>
+                <div id="owned-upgrades"></div>
+            </div>
+            <div class="sub-panel">
+                <h3>Boosts</h3>
+                <div id="owned-boosts"></div>
+            </div>
+        </div>
+
+        <!-- Boutique en bas -->
+        <div class="shop-panel">
+            <div class="shop-column">
+                <h2>Améliorations</h2>
+                <div id="upgrades-container"></div>
+            </div>
+            <div class="shop-column">
+                <h2>Boosts</h2>
+                <div id="boosts-container"></div>
             </div>
         </div>
     </div>
 
-    <!-- Scripts -->
-    <script src="./js/gameManager.js"></script>
-    <script src="./js/shopManager.js"></script>
-    <script src="./js/animationUpgrade.js"></script>
-    <script src="./js/main.js"></script>
+    <audio id="click-sound" src="assets/sound/click.mp3"></audio>
+    <audio id="buy-sound" src="assets/sound/buy.mp3"></audio>
+    <audio id="welcome-audio" autoplay>
+        <source src="assets/sound/La Famille Pierrafeu - Générique.mp3" type="audio/mpeg">
+        <source src="assets/sound/La Famille Pierrafeu - Générique.ogg" type="audio/ogg">
+        Votre navigateur ne supporte pas l'audio.
+    </audio>
+
+    <script src="js/script.js"></script>
 </body>
 </html>

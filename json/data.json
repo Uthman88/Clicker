@@ -1,0 +1,69 @@
+{
+    "ameliorations": [
+        {
+            "id": 1,
+            "nom": "Robot à pince",
+            "image": "assets/images/robot_pince.png",
+            "prix": 20,
+            "production_sec": 0.1
+        },
+        {
+            "id": 2,
+            "nom": "Camion benne",
+            "image": "assets/images/camion_benne.png",
+            "prix": 50,
+            "production_sec": 0.5
+        },
+        {
+            "id": 3,
+            "nom": "Robot foreuse",
+            "image": "assets/images/robot_foreuse.png",
+            "prix": 100,
+            "production_sec": 2
+        },
+        {
+            "id": 4,
+            "nom": "Bulldozer",
+            "image": "assets/images/bulldozer.png",
+            "prix": 250,
+            "production_sec": 5
+        },
+        {
+            "id": 5,
+            "nom": "Excavatrice",
+            "image": "assets/images/excavatrice.png",
+            "prix": 500,
+            "production_sec": 15
+        }
+    ],
+    "boosts": [
+        {
+            "id": 1,
+            "nom": "Pioche en pierre",
+            "image": "assets/images/stone_pickaxe.png",
+            "prix": 50,
+            "multiplicateur": 2
+        },
+        {
+            "id": 2,
+            "nom": "Pioche en fer",
+            "image": "assets/images/iron_pickaxe.png",
+            "prix": 100,
+            "multiplicateur": 4
+        },
+        {
+            "id": 3,
+            "nom": "Pioche en or",
+            "image": "assets/images/gold_pickaxe.png",
+            "prix": 150,
+            "multiplicateur": 6
+        },
+        {
+            "id": 4,
+            "nom": "Pioche en diamant",
+            "image": "assets/images/diamond_pickaxe.png",
+            "prix": 200,
+            "multiplicateur": 8
+        }
+    ]
+}
