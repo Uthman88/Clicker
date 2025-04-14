@@ -1,7 +1,7 @@
 // Variables du jeu
 let diamonds = 0;
 let totalProduced = 0;
-let clickValue = 1;
+const BASE_CLICK_VALUE = 1;
 let productionRate = 0;
 let globalMultiplier = 1;
 let upgrades = [];
@@ -35,7 +35,6 @@ async function initGame() {
     setInterval(saveGame, 30000);
 }
 
-// Chargement des données JSON
 async function loadGameData() {
     try {
         const response = await fetch('json/data.json');
@@ -48,8 +47,7 @@ async function loadGameData() {
         
         boosts = data.boosts.map(boost => ({
             ...boost,
-            // Convertit les multiplicateurs en valeurs additives
-            bonus: boost.multiplicateur - 1
+            bonus: boost.multiplicateur
         }));
         
         upgrades.forEach(upgrade => {
@@ -64,18 +62,15 @@ async function loadGameData() {
     }
 }
 
-// Calcul du prix avec augmentation exponentielle (15% par achat)
 function getUpgradePrice(id, ownedCount) {
     const upgrade = upgrades.find(u => u.id === id);
     return Math.floor(upgrade.basePrix * Math.pow(1.15, ownedCount));
 }
 
-// Sauvegarde du jeu
 function saveGame() {
     const gameData = {
         diamonds,
         totalProduced,
-        clickValue,
         productionRate,
         globalMultiplier,
         ownedUpgrades,
@@ -85,7 +80,6 @@ function saveGame() {
     localStorage.setItem('diamondMinerSave', JSON.stringify(gameData));
 }
 
-// Chargement de la sauvegarde
 function loadSave() {
     const savedData = localStorage.getItem('diamondMinerSave');
     if (savedData) {
@@ -93,7 +87,6 @@ function loadSave() {
             const parsedData = JSON.parse(savedData);
             diamonds = parsedData.diamonds || 0;
             totalProduced = parsedData.totalProduced || 0;
-            clickValue = parsedData.clickValue || 1;
             productionRate = parsedData.productionRate || 0;
             globalMultiplier = parsedData.globalMultiplier || 1;
             ownedUpgrades = parsedData.ownedUpgrades || {};
@@ -104,21 +97,18 @@ function loadSave() {
     }
 }
 
-// Calcul de la production (avec limite à x10)
 function calculateProduction() {
     let baseProduction = 0;
     upgrades.forEach(upgrade => {
         baseProduction += upgrade.production_sec * (ownedUpgrades[upgrade.id] || 0);
     });
-    return baseProduction * Math.min(globalMultiplier, 10);
+    return baseProduction * globalMultiplier;
 }
 
-// Valeur du clic (avec limite à x10)
-function calculateClickValue() {
-    return clickValue * Math.min(globalMultiplier, 10);
+function getCurrentClickValue() {
+    return BASE_CLICK_VALUE + Math.log10(globalMultiplier + 1);
 }
 
-// Affichage de la boutique
 function renderShop() {
     elements.upgradesContainer.innerHTML = '';
     upgrades.forEach(upgrade => {
@@ -149,7 +139,7 @@ function renderShop() {
             <img src="${boost.image}" alt="${boost.nom}">
             <div class="shop-item-info">
                 <h3>${boost.nom}</h3>
-                <p>Bonus: +${boost.bonus} au multiplicateur</p>
+                <p>Bonus: +${boost.bonus} multiplicateur</p>
                 <p>Prix: ${boost.prix} diamants</p>
             </div>
             <button onclick="buyBoost(${boost.id})" ${ownedBoosts[boost.id] || diamonds < boost.prix ? 'disabled' : ''}>
@@ -160,7 +150,6 @@ function renderShop() {
     });
 }
 
-// Affichage des possessions
 function renderOwnedItems() {
     elements.ownedUpgrades.innerHTML = '';
     upgrades.forEach(upgrade => {
@@ -183,14 +172,13 @@ function renderOwnedItems() {
             itemElement.className = 'owned-item';
             itemElement.innerHTML = `
                 <img src="${boost.image}" alt="${boost.nom}">
-                <span>${boost.nom} (+${boost.bonus})</span>
+                <span>${boost.nom}</span>
             `;
             elements.ownedBoosts.appendChild(itemElement);
         }
     });
 }
 
-// Achat d'amélioration
 function buyUpgrade(id) {
     const owned = ownedUpgrades[id] || 0;
     const currentPrice = getUpgradePrice(id, owned);
@@ -209,13 +197,12 @@ function buyUpgrade(id) {
     }
 }
 
-// Achat de boost
 function buyBoost(id) {
     const boost = boosts.find(b => b.id === id);
     if (!ownedBoosts[boost.id] && diamonds >= boost.prix) {
         diamonds -= boost.prix;
         ownedBoosts[boost.id] = true;
-        globalMultiplier += boost.bonus; // Addition au lieu de multiplication
+        globalMultiplier += boost.bonus;
         
         updateGameStats();
         renderShop();
@@ -227,19 +214,16 @@ function buyBoost(id) {
     }
 }
 
-// Mise à jour de l'interface
 function updateGameStats() {
     productionRate = calculateProduction();
-    clickValue = calculateClickValue();
     
     elements.diamondCounter.textContent = `${Math.floor(diamonds)} Diamants`;
     elements.totalProduced.textContent = Math.floor(totalProduced);
     elements.productionRate.textContent = productionRate.toFixed(1);
     elements.globalMultiplier.textContent = globalMultiplier.toFixed(1);
-    elements.clickValue.textContent = clickValue.toFixed(1);
+    elements.clickValue.textContent = getCurrentClickValue().toFixed(1);
 }
 
-// Boucle de jeu principale (10 fois par seconde pour fluidité)
 function startGameLoop() {
     setInterval(() => {
         const production = calculateProduction() / 10;
@@ -249,11 +233,10 @@ function startGameLoop() {
     }, 100);
 }
 
-// Gestion des événements
 function setupEventListeners() {
     elements.diamond.addEventListener('click', () => {
-        diamonds += clickValue;
-        totalProduced += clickValue;
+        diamonds += getCurrentClickValue();
+        totalProduced += getCurrentClickValue();
         updateGameStats();
         
         elements.clickSound.currentTime = 0;
@@ -263,12 +246,10 @@ function setupEventListeners() {
     window.addEventListener('beforeunload', saveGame);
 }
 
-// Rendu initial
 function renderGame() {
     renderShop();
     renderOwnedItems();
     updateGameStats();
 }
 
-// Démarrer le jeu
 initGame();
