@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diamond Miner</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Colonne Gauche - Statistiques -->
+        <div class="panel stats-panel">
+            <h2>Statistiques</h2>
+            <div class="stat-item">Total produit: <span id="total-produced">0</span></div>
+            <div class="stat-item">Production/s: <span id="production-rate">0</span></div>
+            <div class="stat-item">Multiplicateur: <span id="global-multiplier">1</span>x</div>
+            <div class="stat-item">Clic valeur: <span id="click-value">1</span></div>
+        </div>
+
+        <!-- Colonne Centrale - Jeu -->
+        <div class="panel main-panel">
+            <div id="diamond-counter">0 Diamants</div>
+            <div id="click-zone">
+                <img src="assets/images/diamond.png" alt="Diamant" id="diamond">
+            </div>
+        </div>
+
+        <!-- Colonne Droite - Possessions -->
+        <div class="panel owned-panel">
+            <h2>Possessions</h2>
+            <div class="sub-panel">
+                <h3>Améliorations</h3>
+                <div id="owned-upgrades"></div>
+            </div>
+            <div class="sub-panel">
+                <h3>Boosts</h3>
+                <div id="owned-boosts"></div>
+            </div>
+        </div>
+
+        <!-- Boutique en bas -->
+        <div class="shop-panel">
+            <div class="shop-column">
+                <h2>Améliorations</h2>
+                <div id="upgrades-container"></div>
+            </div>
+            <div class="shop-column">
+                <h2>Boosts</h2>
+                <div id="boosts-container"></div>
+            </div>
+        </div>
+    </div>
+
+    <audio id="click-sound" src="assets/sound/click.mp3"></audio>
+    <audio id="buy-sound" src="assets/sound/buy.mp3"></audio>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
