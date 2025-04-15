@@ -163,7 +163,7 @@ function renderShop() {
             <img src="${boost.image}" alt="${boost.nom}">
             <div class="shop-item-info">
                 <h3>${boost.nom}</h3>
-                <p>Bonus: +${boost.bonus} multiplicateur</p>
+                <p>Bonus: x${boost.bonus} multiplicateur</p>
                 <p>Prix: ${boost.prix} diamants</p>
             </div>
             <button onclick="buyBoost(${boost.id})" ${ownedBoosts[boost.id] || diamonds < boost.prix ? 'disabled' : ''}>
