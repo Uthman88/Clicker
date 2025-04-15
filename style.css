@@ -1,0 +1,228 @@
+/* Réinitialisation et styles de base */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('../assets/images/mine_background.png') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Conteneur principal du jeu */
+.game-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto 1fr;
+    gap: 15px;
+    padding: 15px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Style des panneaux (stats, main, owned) */
+.panel {
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Panneau des statistiques (colonne gauche) */
+.stats-panel {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-item {
+    margin: 8px 0;
+    font-size: 16px;
+}
+
+/* Panneau principal (colonne centrale - zone de jeu) */
+.main-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#diamond-counter {
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+#click-zone {
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+
+#diamond {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    transition: all 0.1s;
+}
+
+#diamond:active {
+    transform: scale(1.05);
+}
+
+/* Panneau des possessions (colonne droite) */
+.owned-panel {
+    display: flex;
+    flex-direction: column;
+}
+
+.sub-panel {
+    margin-bottom: 15px;
+}
+
+/* Panneau de la boutique (en bas) */
+.shop-panel {
+    grid-column: 1 / 4;
+    display: flex;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.shop-column {
+    flex: 1;
+    padding: 0 10px;
+}
+
+.shop-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 5px;
+}
+
+.shop-item img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.shop-item-info {
+    flex: 1;
+}
+
+.shop-item button {
+    background: #4CAF50;
+    border: none;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+
+.shop-item button:hover {
+    background: #45a049;
+}
+
+.shop-item button:disabled {
+    background: #777;
+    cursor: not-allowed;
+}
+
+.owned-item {
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+    padding: 5px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 3px;
+}
+
+.owned-item img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+/* Styles pour le modal de bienvenue */
+.modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+}
+
+.modal-content {
+    background: #1e1e1e;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 500px;
+    width: 90%;
+    color: #ffffff;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+}
+
+.modal-content h2 {
+    font-size: 2rem;
+    color: #4CAF50; /* Couleur cohérente avec le thème du jeu */
+    margin-bottom: 15px;
+}
+
+.modal-content p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+#close-modal-btn {
+    background: #4CAF50;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+#close-modal-btn:hover {
+    background: #45a049;
+}
+
+/* Styles pour le carrousel */
+.carousel {
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.carousel-slides {
+    display: flex;
+    width: 300%; /* 3 slides */
+    animation: slide 6s infinite;
+}
+
+.carousel-slides img {
+    width: 33.33%; /* Chaque slide prend 1/3 de la largeur */
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+@keyframes slide {
+    0% { transform: translateX(0); }
+    33% { transform: translateX(-33.33%); }
+    66% { transform: translateX(-66.66%); }
+    100% { transform: translateX(0); }
+}
